@@ -1,3 +1,20 @@
+
+require_relative "boot"
+require "rails/all"
+
+Bundler.require(*Rails.groups)
+
+module TravelJournal
+  class Application < Rails::Application
+    config.load_defaults 7.1
+    
+    # Allow the app to be iframed on replit.com
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWFROM replit.com'
+    }
+  end
+end
+
 require_relative "boot"
 
 require "rails"
