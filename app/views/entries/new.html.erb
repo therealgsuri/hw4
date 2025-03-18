@@ -1,19 +1,23 @@
 
-<h1>New Entry for <%= @place["name"] %></h1>
+<div>
+  <h1>New Post for <%= @place["name"] %></h1>
 
-<%= form_with url: "/entries" do |form| %>
-  <%= form.hidden_field "place_id", value: @place["id"] %>
-  <div>
-    <%= form.label "title" %>
-    <%= form.text_field "title" %>
-  </div>
-  <div>
-    <%= form.label "description" %>
-    <%= form.text_area "description" %>
-  </div>
-  <div>
-    <%= form.label "occurred_on" %>
-    <%= form.date_field "occurred_on" %>
-  </div>
-  <%= form.submit "Create Entry" %>
-<% end %>
+  <%= form_with url: "/places/#{@place["id"]}/entries" do |form| %>
+    <div class="mb-3">
+      <%= form.label "title", class: "form-label" %>
+      <%= form.text_field "title", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "occurred_on", "Date", class: "form-label" %>
+      <%= form.date_field "occurred_on", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "description", class: "form-label" %>
+      <%= form.text_area "description", class: "form-control" %>
+    </div>
+
+    <%= form.submit "Create Entry", class: "btn btn-primary" %>
+  <% end %>
+</div>
