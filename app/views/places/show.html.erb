@@ -1,10 +1,14 @@
+
 <h1><%= @place["name"] %></h1>
 
 <h2>My Entries</h2>
-<% for entry in @entries %>
-  <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
-  <p><%= entry["description"] %></p>
+
+<% @entries.each do |entry| %>
+  <div>
+    <h3><%= entry["title"] %></h3>
+    <p>Date: <%= entry["occurred_on"] %></p>
+    <p><%= entry["description"] %></p>
+  </div>
 <% end %>
 
 <p>
@@ -12,5 +16,5 @@
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places">Back to Places</a>
 </p>
