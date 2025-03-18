@@ -6,3 +6,15 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "bundle exec rails server --binding=0.0.0.0"]
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 34924984
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bundle exec rails server --binding=0.0.0.0"
